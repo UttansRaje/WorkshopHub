@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css_part_9.css">
+    <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkshopHub - Workshop Management System</title>
+</head>
+
+<body>
+
+    
+    <header>
+        <h1>WorkshopHub</h1>
+        <p>Your Workshops, Now Organised!</p>
+
+        <button type="button" id="addWorkshopBtn">
+            + Add Workshop
+        </button>
+    </header>
+
+
+    <main>
+
+        
+        <section id="dashboard">
+            <h2>Dashboard Overview</h2>
+
+            <div class="summary">
+
+                <div class="card">
+                    <h3>Total Workshops</h3>
+                    <p id="totalCount">3</p>
+                </div>
+
+                <div class="card">
+                    <h3>Upcoming</h3>
+                    <p id="upcomingCount">1</p>
+                </div>
+
+                <div class="card">
+                    <h3>Ongoing</h3>
+                    <p id="ongoingCount">1</p>
+                </div>
+
+                <div class="card">
+                    <h3>Completed</h3>
+                    <p id="completedCount">1</p>
+                </div>
+
+            </div>
+        </section>
+
+
+        
+        <section id="searchFilter">
+
+            <h2>Find Workshops</h2>
+
+            
+            <label for="searchInput">Search Workshop:</label>
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search by title or trainer"
+            >
+
+           
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="Technical">Technical</option>
+                <option value="Soft Skills">Soft Skills</option>
+                <option value="Design">Design</option>
+                <option value="Business">Business</option>
+            </select>
+
+            
+            <label for="statusFilter">Status:</label>
+            <select id="statusFilter">
+                <option value="all">All Statuses</option>
+                <option value="Upcoming">Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+
+            <button type="button" id="resetFilters">
+                Reset Filters
+            </button>
+
+        </section>
+
+
+        
+        <section id="workshopList">
+
+            <h2>All Workshops</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Trainer</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Venue</th>
+                        <th>Seats</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="workshopTableBody">
+
+                    
+                    <tr>
+                        <td>001</td>
+                        <td>Introduction to Python</td>
+                        <td>Technical</td>
+                        <td>Priya Sharma</td>
+                        <td>2026-10-28</td>
+                        <td>10:00 AM</td>
+                        <td>Computer Lab 1</td>
+                        <td>24/30</td>
+                        <td>Upcoming</td>
+                        <td>
+                            <button type="button">View</button>
+                            <button type="button">Edit</button>
+                            <button type="button">Mark Complete</button>
+                            <button type="button">Delete</button>
+                        </td>
+                    </tr>
+
+                    
+                    <tr>
+                        <td>002</td>
+                        <td>HTML and Web Development</td>
+                        <td>Technical</td>
+                        <td>Rahul Mehta</td>
+                        <td>2026-10-24</td>
+                        <td>11:00 AM</td>
+                        <td>Computer Lab 2</td>
+                        <td>25/25</td>
+                        <td>Ongoing</td>
+                        <td>
+                            <button type="button">View</button>
+                            <button type="button">Edit</button>
+                            <button type="button">Mark Complete</button>
+                            <button type="button">Delete</button>
+                        </td>
+                    </tr>
+
+                    
+                    <tr>
+                        <td>003</td>
+                        <td>Public Speaking Essentials</td>
+                        <td>Soft Skills</td>
+                        <td>Ananya Iyer</td>
+                        <td>2026-10-15</td>
+                        <td>02:00 PM</td>
+                        <td>Seminar Hall</td>
+                        <td>37/40</td>
+                        <td>Completed</td>
+                        <td>
+                            <button type="button">View</button>
+                            <button type="button">Edit</button>
+                            <button type="button">Delete</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        
+        <section id="workshopFormSection">
+
+            <h2>Add New Workshop</h2>
+
+            <form id="workshopForm">
+
+                <div>
+                    <label for="workshopTitle">Workshop Title:</label>
+                    <input
+                        type="text"
+                        id="workshopTitle"
+                        name="title"
+                        placeholder="Enter workshop title"
+                        required
+                    >
+                </div>
+
+          
+                <div>
+                    <label for="workshopCategory">Category:</label>
+                    <select id="workshopCategory" name="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Technical">Technical</option>
+                        <option value="Soft Skills">Soft Skills</option>
+                        <option value="Design">Design</option>
+                        <option value="Business">Business</option>
+                    </select>
+                </div>
+
+          
+                <div>
+                    <label for="trainerName">Trainer:</label>
+                    <input
+                        type="text"
+                        id="trainerName"
+                        name="trainer"
+                        placeholder="Enter trainer name"
+                        required
+                    >
+                </div>
+
+                
+                <div>
+                    <label for="workshopDate">Date:</label>
+                    <input
+                        type="date"
+                        id="workshopDate"
+                        name="date"
+                        required
+                    >
+                </div>
+
+              
+                <div>
+                    <label for="workshopTime">Time:</label>
+                    <input
+                        type="time"
+                        id="workshopTime"
+                        name="time"
+                        required
+                    >
+                </div>
+
+               
+                <div>
+                    <label for="workshopVenue">Venue:</label>
+                    <input
+                        type="text"
+                        id="workshopVenue"
+                        name="venue"
+                        placeholder="Enter workshop venue"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="totalSeats">Total Seats:</label>
+                    <input
+                        type="number"
+                        id="totalSeats"
+                        name="totalSeats"
+                        min="1"
+                        placeholder="Enter total seats"
+                        required
+                    >
+                </div>
+
+              
+                <div>
+                    <label for="registeredSeats">Registered Seats:</label>
+                    <input
+                        type="number"
+                        id="registeredSeats"
+                        name="registeredSeats"
+                        min="0"
+                        value="0"
+                        required
+                    >
+                </div>
+
+                
+                <div>
+                    <label for="workshopStatus">Status:</label>
+                    <select id="workshopStatus" name="status" required>
+                        <option value="">Select Status</option>
+                        <option value="Upcoming">Upcoming</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="workshopDescription">Description:</label>
+                    <textarea
+                        id="workshopDescription"
+                        name="description"
+                        rows="4"
+                        placeholder="Enter workshop description"
+                    ></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" id="saveWorkshop">
+                        Save Workshop
+                    </button>
+
+                    <button type="reset">
+                        Clear Form
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+
+        
+        <section id="workshopDetails">
+
+            <h2>Workshop Details</h2>
+
+            <div id="workshopDetailsContent">
+                <p>Select a workshop from the table to view its details.</p>
+            </div>
+
+            <button type="button" id="closeDetails">
+                Close Details
+            </button>
+
+        </section>
+
+
+        
+        <section id="deleteConfirmation">
+
+            <h2>Delete Workshop</h2>
+
+            <p>Are you sure you want to delete this workshop?</p>
+
+            <button type="button" id="confirmDelete">
+                Yes, Delete
+            </button>
+
+            <button type="button" id="cancelDelete">
+                Cancel
+            </button>
+
+        </section>
+
+    </main>
+
+
+    
+    <footer>
+        <p>WorkshopHub - Workshop Management System</p>
+        <p>Developed as a College Project</p>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
